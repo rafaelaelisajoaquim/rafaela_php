@@ -6,11 +6,11 @@
     <title>Document</title>
 <body>
     <?php
-    $name = "Stefanie Hatcher";
-    $length = strlen($name);
-    $cmp = strcmp($name,"Brian Le");
-    $index = strpos($name,"e");
-    $first = substr($name,9,5);
+    $name = "Stefanie Hatcher"; //deixa as letras maiúsculas
+    $length = strlen($name); //imprime a variável $nome
+    $cmp = strcmp($name,"Brian Le"); //comparar strings em ordem alfabética
+    $index = strpos($name,"e"); // posição de caractere
+    $first = substr($name,9,5); //traz 
     $name = strtoupper($name);
 
     echo ("$name<br>");
