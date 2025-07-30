@@ -11,7 +11,7 @@
     function buscarClientePorId ($id_cliente, $conexao){
         $stmt = $conexao -> prepare("SELECT id_cliente, nome, endereco, telefone, email
                                      FROM cliente WHERE id_cliente = :id");
-        $stmt -> bindParam(":id", $idCliente, PDO::PARAM_INT);
+        $stmt -> bindParam(":id", $id_cliente, PDO::PARAM_INT);
         $stmt -> execute();
         return $stmt -> fetch();
     }
@@ -22,7 +22,7 @@
             $msgErro = "Erro: Cliente não encontrado";
         }
     } else{
-        $msgErro = "Digite o ID do cliente para buscar os dados";
+        $msgErro = "Digite o ID do client para bsucar os dados";
     }
 ?>
 <!DOCTYPE html>
@@ -49,7 +49,7 @@
             <button type="submit">Buscar</button>
       </form>
       <?php else: ?>
-        <form action="atualizarCliente.php" method="POST">
+        <form action="processarAtualizacao.php" method="POST">
             <input type="hidden" name="id_cliente" 
             value="<?= htmlspecialchars($cliente['id_cliente']) ?>">
 
