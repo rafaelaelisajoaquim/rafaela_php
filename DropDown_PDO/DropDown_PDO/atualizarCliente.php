@@ -41,7 +41,7 @@
 
     <style>
         body{
-            background-color: rgb(255, 210, 210);
+            background-color: rgb(159, 224, 248);
         }
 
         .container {

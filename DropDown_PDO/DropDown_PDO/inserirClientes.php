@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excluir cliente</title>
+    <title>Cadastro de cliente</title>
     <link rel="stylesheet" type="text/css" href="estilo.css" media="all" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <style>
@@ -23,7 +23,7 @@
             max-width: 360px;
             width: 100%;
             margin-left: 500px;
-            margin-top: 150px;
+            margin-top: 100px;
         }
     </style>
 </head>
@@ -40,24 +40,30 @@
             <a href="pesquisarCliente.php"> Pesquisar Clientes </a>
             <a href="listarClientes.php"> Listar Clientes </a>
         </li>
-      </ul>      
+      </ul>   
 
-    <div class="container">
-        <h2>Excluir Cliente</h2><br>
+<div class="container">
+    <h2> Cadastro de Cliente </h2>
+    <br>
+    <form action = "processarInsercao.php" method = "POST" >
+    <div class="form-group">
+        <label for ="nome"> Nome: </label>
+        <input type ="text" id ="nome" name ="nome" class="form-control" required>
 
-        <form action="processarDelecao.php" method="POST">
+        <label for ="endereco"> Endereço: </label>
+        <input type ="text" id ="endereco" name ="endereco" class="form-control" required>
 
-        <div class="mb-3">
-            <label for="id" class="form-label">ID do cliente:</label><br>
-            <input type="number" class="form-control" id="id" name="id" placeholder="Digite o ID" required>
+        <label for ="telefone"> Telefone: </label>
+        <input type ="text" id ="telefone" name ="telefone" class="form-control" required>
+
+        <label for ="nome"> Email: </label>
+        <input type ="text" id ="email" name ="email" class="form-control" required>
+        <br>
+        <div>
+            <button type ="submit" class="btn btn-primary"> Cadastrar Cliente </button>
         </div>
-
-
-        <div class="col-12"><center>
-            <button type="submit" class="btn btn-primary">Excluir cliente</button>
-        </center></div>
-
-        </form>
     </div>
+    </form>
+</div>
 </body>
 </html>

@@ -1,9 +1,17 @@
+<?php 
+    require 'conexao.php';
+
+    $conexao = conectarBanco();
+    $stmt = $conexao ->prepare("SELECT * FROM cliente");
+    $stmt ->execute();
+    $clientes = $stmt->fetchAll();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excluir cliente</title>
+    <title>Lista de Clientes</title>
     <link rel="stylesheet" type="text/css" href="estilo.css" media="all" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <style>
@@ -20,15 +28,15 @@
             flex-direction: column;
             align-items: center;
             min-width: 320px;
-            max-width: 360px;
+            max-width: 800px;
             width: 100%;
-            margin-left: 500px;
-            margin-top: 150px;
+            margin-left: 280px;
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
-<ul>
+    <ul>
         <li><a href="index.html"> Início </a></li>
 
         <li class="dropdown">
@@ -40,24 +48,29 @@
             <a href="pesquisarCliente.php"> Pesquisar Clientes </a>
             <a href="listarClientes.php"> Listar Clientes </a>
         </li>
-      </ul>      
-
+      </ul>   
     <div class="container">
-        <h2>Excluir Cliente</h2><br>
+        <h2>Lista de Clientes</h2>
+        <br>
+        <table class="table" border="1">
+            <tr class="table-dark">
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+            </tr>
 
-        <form action="processarDelecao.php" method="POST">
-
-        <div class="mb-3">
-            <label for="id" class="form-label">ID do cliente:</label><br>
-            <input type="number" class="form-control" id="id" name="id" placeholder="Digite o ID" required>
-        </div>
-
-
-        <div class="col-12"><center>
-            <button type="submit" class="btn btn-primary">Excluir cliente</button>
-        </center></div>
-
-        </form>
+            <?php foreach($clientes as $cliente): ?>
+                <tr>
+                    <td><?=htmlspecialchars($cliente["id_cliente"])?></td>
+                    <td><?=htmlspecialchars($cliente["nome"])?></td>
+                    <td><?=htmlspecialchars($cliente["endereco"])?></td>
+                    <td><?=htmlspecialchars($cliente["telefone"])?></td>
+                    <td><?=htmlspecialchars($cliente["email"])?></td>
+                </tr>
+                <?PHP endforeach;?>
+        </table>
     </div>
 </body>
 </html>

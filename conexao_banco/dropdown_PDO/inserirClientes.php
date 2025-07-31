@@ -6,7 +6,6 @@
     <title>Cadastro de cliente</title>
     <link rel="stylesheet" type="text/css" href="estilo.css" media="all" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-
     <style>
         body{
             background-color: 	#BA55D3;
@@ -39,6 +38,7 @@
             <a href="atualizarCliente.php"> Editar Clientes </a>
             <a href="deletarCliente.php"> Deletar Clientes </a>
             <a href="pesquisarCliente.php"> Pesquisar Clientes </a>
+            <a href="listarClientes.php"> Listar Clientes </a>
         </li>
       </ul>   
 
@@ -66,10 +66,4 @@
     </form>
 </div>
 </body>
-
-<address>
-    <center>
-        Heloisa Gonçalves da Silva/ Desenvolvimento de Sistemas
-    </center>
-</address>
 </html>
