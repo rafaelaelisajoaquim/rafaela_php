@@ -52,7 +52,7 @@
 
         //VERIFICA SE FOI UM POST E SE TEM ARQUIVO 'foto'
         if($_SERVER['REQUEST_METHOD']=='POST'&& isset($_FILES['foto'])){
-            
+
             if($_FILES['foto']['error']==0){
                 // recebe os dados do formulário
                 $nome = $_POST['nome']; //PEGA O NOME DO FUNC
@@ -99,5 +99,6 @@
 <body>
     <h1>Lista de Imagens</h1>
     <a href="consulta_funcionario.php">Listar Funcionários</a> 
+    <address><center>Rafaela Elisa Joaquim</address></center>
 </body>
 </html>
