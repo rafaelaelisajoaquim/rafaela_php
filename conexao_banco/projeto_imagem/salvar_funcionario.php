@@ -1,6 +1,7 @@
 <?php
 
     //FUNÇÃO PARA REDIMENSIONAR A IMAGEM
+<<<<<<< HEAD
     function redimensionarImagem($imagem, $largura, $altura){
         //OBTÉM AS DIMENSÕES ORIGINAIS DA IMAGEM
         //getimagesize() RETORNA A LARGURA E A ALTURA DE UMA IMAGEM
@@ -9,6 +10,17 @@
         //CRIA NOVA IMAGEM EM BRANCO COM NOVAS DIMENSÕES
         //imagecreatetruecolor() CRIA UMA NOVA IMAGEM EM BRANCO EM ALTA QUALIDADE
         $novaImagem = imagecreatetruecolor($largura, $altura);
+=======
+    function redimensionarImagem($imagem,$largura,$altura){
+
+        //OBTÉM AS DIMENSÕES ORIGINAIS DA IMAGEM
+        //getimagesize() RETORNA A LARGURA E A ALTURA DE UMA IMAGEM
+        list($larguraOriginal,$alturaOriginal) = getimagesize($imagem);
+        
+        //CRIA NOVA IMAGEM EM BRANCO COM NOVAS DIMENSÕES
+        //imagecreatetruecolor() CRIA UMA NOVA IMAGEM EM BRANCO EM ALTA QUALIDADE
+        $novaImagem = imagecreatetruecolor($largura,$altura);
+>>>>>>> 1c9eca1331caa14c27da9e49eda404badbdd8f54
 
         //CARREGA A IMAGEM ORIGINAL(JPEG) A PARTIR DO ARQUIVO 
         //imagecreatefromjpeg() CRIA UMA IMAGEM PHP A PARTIR DE UM JPEG
@@ -16,8 +28,13 @@
 
         //COPIA E REDIMENSIONA A IMAGEM ORIGINAL PARA A NOVA
         //imagecopyresampled() COPIA COM REDIMENSIONAMENTO E SUAVIZAÇÃO
+<<<<<<< HEAD
         imagecopyresampled($novaImagem, $imagemOriginal, 0, 0, 0, 0, 
         $largura, $altura, $larguraOriginal, $alturaOriginal);
+=======
+        imagecopyresampled($novaImagem,$imagemOriginal, 0, 0, 0, 0, 
+        $largura,$altura,$larguraOriginal,$alturaOriginal);
+>>>>>>> 1c9eca1331caa14c27da9e49eda404badbdd8f54
 
         //INICIA UM BUFFER PARA GUARDAR A IMAGEM COM TEXTO BINÁRIO
         //ob_start() INICIA O "output buffering" GUARDADNDO A SAIDA
@@ -46,12 +63,22 @@
 
     try{
         //CONEXAO COM O BANCO DE DADOS USANDO PDO
+<<<<<<< HEAD
         $pdo = new PDO("mysql:host=$host; dbname=$dbname", $username, $password);
+=======
+        $pdo = new PDO("mysql:host=$host;dbname=$dbname",$username,$password);
+>>>>>>> 1c9eca1331caa14c27da9e49eda404badbdd8f54
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // DEFINE QUE ERROS VÃO LANÇAR EXCEÇÕES
 
         //VERIFICA SE FOI UM POST E SE TEM ARQUIVO 'foto'
         if($_SERVER['REQUEST_METHOD']=='POST'&& isset($_FILES['foto'])){
+<<<<<<< HEAD
             if($_FILES['foto']['error']==0){
+=======
+
+            if($_FILES['foto']['error']==0){
+                // recebe os dados do formulário
+>>>>>>> 1c9eca1331caa14c27da9e49eda404badbdd8f54
                 $nome = $_POST['nome']; //PEGA O NOME DO FUNC
                 $telefone = $_POST['telefone']; //PEGA O TELEFONE DO FUNC
                 $nomeFoto = $_FILES['foto']['name']; //PEGA O NOME ORIGINAL DO ARQUIVO
@@ -59,9 +86,17 @@
 
                 //REDIMENSIONA A IMAGEM
                 $foto = redimensionarImagem($_FILES['foto']['tmp_name'], 300,400); //tmp_name É O CAMINHO TEMPORÁRIO
+<<<<<<< HEAD
                 //INSERE NO BANCO DE DADOS USANDO SQL PREPARADA
                 $sql = "INSERT INTO funcionarios(nome, telefone, nome_foto, tipo_foto, foto)
                         VALUES(:nome, :telefone, :nome_foto, :tipo_foto, :foto)";
+=======
+
+                //INSERE NO BANCO DE DADOS USANDO SQL PREPARADA
+                $sql = "INSERT INTO funcionarios(nome, telefone, nome_foto, tipo_foto, foto)
+                        VALUES(:nome, :telefone, :nome_foto, :tipo_foto, :foto)";
+
+>>>>>>> 1c9eca1331caa14c27da9e49eda404badbdd8f54
                 $stmt = $pdo->prepare($sql); //PREPARA A QUERY PARA EVITAR ATAQUE SQL INJECTION
                 $stmt->bindParam(':nome', $nome); //LIGA OS PARÂMETROS DAS VARIANTES
                 $stmt->bindParam(':telefone', $telefone); //LIGA OS PARÂMETROS DAS VARIANTES
@@ -79,7 +114,28 @@
             }
         }
     }  catch (PDOException $e){
+<<<<<<< HEAD
         echo "Erro" . $e->getMessage(); //MOSTRA O ERRO SE HOUVER
     } 
 
 ?>
+=======
+        //tratamento de exceções em caso de erro de conexão
+        echo "Erro" . $e->getMessage(); //MOSTRA O ERRO SE HOUVER
+    } 
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Imagens</title>
+</head>
+<body>
+    <h1>Lista de Imagens</h1>
+    <a href="consulta_funcionario.php">Listar Funcionários</a> 
+    <address><center>Rafaela Elisa Joaquim</address></center>
+</body>
+</html>
+>>>>>>> 1c9eca1331caa14c27da9e49eda404badbdd8f54

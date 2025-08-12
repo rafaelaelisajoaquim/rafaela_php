@@ -26,6 +26,11 @@
 
             <button type="submit">Cadastrar</button>
         </form>
+<<<<<<< HEAD
+=======
+
+        <address><center>Rafaela Elisa Joaquim</address></center>
+>>>>>>> 1c9eca1331caa14c27da9e49eda404badbdd8f54
     </div>
     
 </body>
